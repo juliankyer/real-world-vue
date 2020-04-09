@@ -227,6 +227,24 @@
       "date": "2020-04-15T21:14:00.000Z",
       "time": "12:00",
       "attendees": []
+    },
+    {
+      "id": 7298425,
+      "user": {
+        "id": "abc123",
+        "name": "Gary Numan"
+      },
+      "category": "sustainability",
+      "organizer": {
+        "id": "abc123",
+        "name": "Gary Numan"
+      },
+      "title": "test",
+      "description": "test",
+      "location": "test",
+      "date": "",
+      "time": "",
+      "attendees": []
     }
   ]
 }
