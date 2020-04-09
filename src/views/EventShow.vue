@@ -3,7 +3,8 @@
     <div>
       <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
       <h1 class="ttle">{{ event.title }}</h1>
-      <h5>Organized by {{ event.organizer ? event.organizer.name : '' }}</h5>
+      <h5>Organized by {{ event.organizer }}</h5>
+      <!-- <h5>Organized by {{ event.organizer ? event.organizer.name : '' }}</h5> -->
       <h5>Category: {{ event.category }}</h5>
     </div>
     <BaseIcon name="map">
@@ -31,14 +32,19 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   props: ['id'],
   created() {
-    this.$store.dispatch('fetchEvent', this.id);
+    this.fetchEvent(this.id);
   },
-  computed: mapState(['event']),
+  computed: mapState({
+    event: state => state.event.event,
+  }),
+  // same
+  // methods: mapActions(['event/fetchEvent']),
+  methods: mapActions('event', ['fetchEvent']),
 };
 </script>
 
