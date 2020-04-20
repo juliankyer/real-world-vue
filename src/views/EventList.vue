@@ -31,8 +31,9 @@ export default {
     EventCard,
   },
   created() {
+    this.perPage = 3;
     this.$store.dispatch('event/fetchEvents', {
-      perPage: 3,
+      perPage: this.perPage,
       page: this.page,
     });
   },
@@ -41,7 +42,7 @@ export default {
       return parseInt(this.$route.query.page) || 1;
     },
     hasNextPage() {
-      return this.event.eventsTotal > this.page * this.perPage;
+      return this.event.totalEvents > this.page * this.perPage;
     },
     ...mapState(['event', 'user']),
   },
