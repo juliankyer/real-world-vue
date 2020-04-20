@@ -299,6 +299,24 @@
       "date": "2020-04-04T23:22:00.000Z",
       "time": "4:00",
       "attendees": []
+    },
+    {
+      "id": 7476212,
+      "user": {
+        "id": "abc123",
+        "name": "Gary Numan"
+      },
+      "category": "nature",
+      "organizer": {
+        "id": "abc123",
+        "name": "Gary Numan"
+      },
+      "title": "asdf",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
     }
   ]
 }
