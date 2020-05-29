@@ -9,11 +9,7 @@
       <h3>Name & describe your event</h3>
       <div class="field">
         <label>Title</label>
-        <input
-          v-model="event.title"
-          type="text"
-          placeholder="Add an event title"
-        />
+        <BaseInput label="Title" />
       </div>
       <div class="field">
         <label>Description</label>
@@ -50,6 +46,7 @@
 
 <script>
 import DatePicker from 'vuejs-datepicker';
+import NProgress from 'nprogress';
 
 export default {
   components: {
@@ -68,6 +65,7 @@ export default {
   },
   methods: {
     createEvent() {
+      NProgress.start();
       this.$store
         .dispatch('event/createEvent', this.event)
         .then(() => {
@@ -77,7 +75,9 @@ export default {
           });
           this.event = this.createFreshEventObject();
         })
-        .catch(() => {});
+        .catch(() => {
+          NProgress.done();
+        });
     },
     createFreshEventObject() {
       const user = this.$store.state.user.user;
